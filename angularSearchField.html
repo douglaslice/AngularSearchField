@@ -1,0 +1,55 @@
+<style type="text/css">
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 100%; 
+    height: 300px;
+}
+.spanSeachField{
+    padding-right: 5px;
+    padding-left: 1px;
+}
+</style>
+
+
+<div class="col-xs-12 form-group form-horizontal">
+
+	<label class="col-xs-3 control-label">{{label}}</label>
+	<span  class="col-xs-2 spanSeachField"><input class="form-control"  ng-model="id" ng-blur="inputBlur()" /></span>
+	<span  class="col-xs-5 spanSeachField"><input class="form-control"  ng-model="description" ng-blur="inputBlur()" /></span>
+	
+
+	<button type="button" class="btn btn-default col-xs-1" ng-click="search()">9</button>
+	<button type="button" class="btn btn-default col-xs-1" ng-click="clean()">§</button>
+</div>
+
+
+<script type='text/ng-template' id="angular_serch_field_modal.html">
+    <div class="modal-header">
+        {{properties.title}}
+    </div>
+    <div class="modal-body col-xs-12 search-field">
+
+        <div class="form-group col-xs-12">
+    	   
+           <label class="col-xs-2 control-label">{{properties.labelId}}</label>
+    	   <span  class="col-xs-10"><input class="form-control"  ng-model="id"/></span>
+        </div>
+
+        <div class="form-group col-xs-12">
+    	   <label class="col-xs-2 control-label">{{properties.labelDescription}}</label>
+    	   <span  class="col-xs-10"><input class="form-control"  ng-model="description"/></span>
+        </div>
+
+        
+        <div class="form-group col-xs-12" ng-show="havingData()">
+            <div class="gridStyle" ng-grid="grid"></div>
+        </div>
+        
+
+        
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="find()">Pesquisar</button>
+        <button class="btn btn-primary" ng-click="clean()">Limpar</button>
+    </div>
+</script>
