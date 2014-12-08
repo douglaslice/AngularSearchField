@@ -1,7 +1,7 @@
 Dependencies
 ============
 
-Bootstrap => http://getbootstrap.com/
+Bootstrap => http://getbootstrap.com/ <br>
 ng-grid     => https://github.com/angular-ui/ng-grid
 
 
@@ -17,5 +17,5 @@ Configure
 Example
 =======
 
-<div ng-search-field service="/service/list" label="My Label" value="seachValue" label-id="Código"
-   label-description="Descrição" title="Tittle" field-id="id" field-description="name"/>
+'<div ng-search-field service="/service/list" label="My Label" value="seachValue" label-id="Código"
+   label-description="Descrição" title="Tittle" field-id="id" field-description="name"/>'
