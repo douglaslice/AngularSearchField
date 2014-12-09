@@ -33,7 +33,7 @@ Create default search-field and instantiate by name:
 
     angular.module('myApp', [
       'ui.bootstrap',
-      'angular.crud',
+      'ngGrid',
       'angular.searchField'
       ]).run(function($rootScope, $searchFieldDefaults) {
         
@@ -50,5 +50,5 @@ Create default search-field and instantiate by name:
     });
 
 ```xml 
-<div ng-search-field config="myApp" value="seachValue"/> 
+<div ng-search-field config="myFinder" value="seachValue"/> 
 ```
