@@ -20,8 +20,9 @@ Example
 Configure just with attributes:
 
 ```xml
-<div ng-search-field service="/service/list" label="My Label" value="seachValue" label-id="Code"
-   label-description="Description" title="Tittle" field-id="id" field-description="name"/>
+<div ng-search-field service="/service/list" label="My Label" 
+    value="seachValue" label-id="Code" label-description="Description" 
+    title="Tittle" field-id="id" field-description="name"/>
 ```   
 
 
@@ -49,5 +50,5 @@ Create default search-field and instantiate by name:
     });
 
 ```xml 
-<div ng-search-field config="myApp" value="seachValue"/> </textarea>
+<div ng-search-field config="myApp" value="seachValue"/> 
 ```
