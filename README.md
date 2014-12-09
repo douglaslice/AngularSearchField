@@ -19,8 +19,10 @@ Example
 
 Configure just with attributes:
 
-<textarea><div ng-search-field service="/service/list" label="My Label" value="seachValue" label-id="Code"
-   label-description="Description" title="Tittle" field-id="id" field-description="name"/></textarea>
+```xml
+<div ng-search-field service="/service/list" label="My Label" value="seachValue" label-id="Code"
+   label-description="Description" title="Tittle" field-id="id" field-description="name"/>
+```   
 
 
 Or
@@ -28,22 +30,24 @@ Or
 
 Create default search-field and instantiate by name:
 
-angular.module('myApp', [
-  'ui.bootstrap',
-  'angular.crud',
-  'angular.searchField'
-  ]).run(function($rootScope, $searchFieldDefaults) {
-      
-    $searchFieldDefaults.addSearch("myFinder", {
-       service: '/service/list',
-       label: "My Labe",
-       title: 'Tittle',
-       labelId: 'Code',
-       labelDescription: Description',
-       fieldId: 'id',
-       fieldDescription: 'name'
+  angular.module('myApp', [
+    'ui.bootstrap',
+    'angular.crud',
+    'angular.searchField'
+    ]).run(function($rootScope, $searchFieldDefaults) {
+        
+      $searchFieldDefaults.addSearch("myFinder", {
+         service: '/service/list',
+         label: "My Labe",
+         title: 'Tittle',
+         labelId: 'Code',
+         labelDescription: Description',
+         fieldId: 'id',
+         fieldDescription: 'name'
+      });
+
     });
 
-  });
-
-<textarea><div ng-search-field config="myApp" value="seachValue"/> </textarea>
+```xml 
+<div ng-search-field config="myApp" value="seachValue"/> </textarea>
+```
