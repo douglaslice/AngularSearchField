@@ -13,12 +13,19 @@
 
 	angular.module('angular.searchField', ['ui.bootstrap', 'ngGrid'])
 	.factory("$searchFieldDefaults", function(){
-		var options = {};
+		var options = {
+			messageInfo: function(_msg){
+				alert(_msg);
+			},
+			processReturn: function(_ret){
+				return _ret;
+			}
+		};
 		var defaultsSerchs = {};
 
 		return {
 			setOptions: function(_arg){
-					options = _arg
+					options = angular.extend(options, _arg);
 			},
 			getOptions: function(){
 				return options;
@@ -32,7 +39,7 @@
 		}
 
 	})
-	.factory("ModalSearchFieldFactory", function($http){
+	.factory("ModalSearchFieldFactory", function($http, $searchFieldDefaults){
 
 		var properties = {};
 		var list = [];
@@ -41,7 +48,7 @@
 			 $http.post(properties.service, _filter, { headers : postHeaders }).success(function(_ret){
 			 	
 			 	if(callbackSucess){
-			 		callbackSucess(_ret.returnObject);//TODO
+			 		callbackSucess($searchFieldDefaults.getOptions().precessReturn(_ret));
 			 	}
 			 }).error(function(error){
 			 	alert(error);
@@ -136,7 +143,7 @@
 
 				value: '='
 			},
-			controller: function($scope, ModalSearchFieldFactory, $modal, $searchFieldDefaults){
+			controller: function($scope, ModalSearchFieldFactory, $modal, $searchFieldDefaults, $timeout){
 
 				$scope.id = null;
 				$scope.description = null;
@@ -169,7 +176,7 @@
 					ModalSearchFieldFactory.excuteFind(_filter, function(list){
 
 						if(!list  || list.length == 0){
-							alert("Nenhum registro encontrado");//TODO criar função parametrizada de mensagem para ser aplicada na configuração do projeto
+							$searchFieldDefaults.getOptions().messageInfo("Nenhum registro encontrado");
 							setValue(null);
 						}else if(list.length == 1){
 							setValue(list[0]);
@@ -222,7 +229,6 @@
 				function setDefaultConfig(){
 					if(!isNull($scope.config)){// get configuration from default
 						var dataConfig = $searchFieldDefaults.getSearch($scope.config);
-						console.log(dataConfig);
 						if(!dataConfig){
 							alert('No having serchfield ' + $scope.config + ' configured!');
 							return;
@@ -236,10 +242,9 @@
 					}
 				};
 
-				console.log($scope.label);
-				setDefaultConfig();
-				console.log($scope.label);
-
+				$timeout(function(){
+					setDefaultConfig();
+				});
 			},
 			templateUrl: currentScriptPath.replace('angularSearchField.js', 'angularSearchField.html')
 		}

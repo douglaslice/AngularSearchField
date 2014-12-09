@@ -1,0 +1,28 @@
+{
+  "name": "angular-search-field",
+  "version": "0.0.0",
+  "homepage": "https://github.com/douglaslice/AngularSearchField",
+  "authors": [
+    "Douglas Dantas Felice <douglaslice@gmail.com>"
+  ],
+  "description": "Find Component",
+  "main": ["angularSearchField.js", "angularSearchField.html"],
+  "keywords": [
+    "angular",
+    "find",
+    "search",
+    "search-field"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16",
+    "ng-grid": "~2.0.14"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
