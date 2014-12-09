@@ -31,11 +31,11 @@ Or
 
 Create default search-field and instantiate by name:
 
-  angular.module('myApp', [
-    'ui.bootstrap',
-    'angular.crud',
-    'angular.searchField'
-    ]).run(function($rootScope, $searchFieldDefaults) {
+    angular.module('myApp', [
+      'ui.bootstrap',
+      'angular.crud',
+      'angular.searchField'
+      ]).run(function($rootScope, $searchFieldDefaults) {
         
       $searchFieldDefaults.addSearch("myFinder", {
          service: '/service/list',
