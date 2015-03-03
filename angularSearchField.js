@@ -48,7 +48,7 @@
 			 $http.post(properties.service, _filter, { headers : postHeaders }).success(function(_ret){
 			 	
 			 	if(callbackSucess){
-			 		callbackSucess($searchFieldDefaults.getOptions().precessReturn(_ret));
+			 		callbackSucess($searchFieldDefaults.getOptions().processReturn(_ret));
 			 	}
 			 }).error(function(error){
 			 	alert(error);
