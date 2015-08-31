@@ -19,7 +19,8 @@
 			},
 			processReturn: function(_ret){
 				return _ret;
-			}
+			},
+			rootRequest: ""
 		};
 		var defaultsSerchs = {};
 
@@ -45,7 +46,7 @@
 		var list = [];
 
 		function excuteFind(_filter, callbackSucess){
-			 $http.post(properties.service, _filter, { headers : postHeaders }).success(function(_ret){
+			 $http.post($searchFieldDefaults.getOptions().rootRequest + properties.service, _filter, { headers : postHeaders }).success(function(_ret){
 			 	
 			 	if(callbackSucess){
 			 		callbackSucess($searchFieldDefaults.getOptions().processReturn(_ret));
