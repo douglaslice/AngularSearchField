@@ -10,7 +10,7 @@ Configure
 
 1 Install component with the command "bower install angular-search-field --save"
 
-2 Import the 'angularSearchField.js' script in your page. 
+2 Import the 'angularSearchField.js' and 'angularSearchField.css' script in your page. 
 
 3 Include the module 'angular.searchField' in your angular app.
 
@@ -24,7 +24,7 @@ Configure just with attributes:
 ```xml
 <div ng-search-field service="/service/list" label="My Label" 
     value="seachValue" label-id="Code" label-description="Description" 
-    title="Tittle" field-id="id" field-description="name"/>
+    title="Tittle" field-id="id" field-description="name" class="form-group"/>
 ```   
 
 
@@ -52,5 +52,5 @@ Create default search-field and instantiate by name:
     });
 
 ```xml 
-<div ng-search-field config="myFinder" value="seachValue"/> 
+<div ng-search-field config="myFinder" value="seachValue" class="form-group"/> 
 ```
